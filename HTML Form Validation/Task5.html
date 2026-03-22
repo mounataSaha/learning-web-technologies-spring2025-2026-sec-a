@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Degree</title>
+</head>
+<body>
+
+<fieldset style="width:200px;">
+<legend>Degree</legend>
+
+<input type="radio" name="degree" id="ssc"> SSC <br>
+<input type="radio" name="degree" id="hsc"> HSC <br>
+<input type="radio" name="degree" id="bsc"> BSc <br><br>
+
+<div id="degreeMsg" style="color:red;"></div>
+
+<input type="button" value="Submit" id="btn">
+
+</fieldset>
+
+<script>
+
+document.getElementById("btn").addEventListener("click", function(){
+
+let ssc = document.getElementById("ssc");
+let hsc = document.getElementById("hsc");
+let bsc = document.getElementById("bsc");
+
+if(ssc.checked==false && hsc.checked==false && bsc.checked==false)
+{
+document.getElementById("degreeMsg").innerHTML = "Select one";
+}
+else
+{
+document.getElementById("degreeMsg").innerHTML = "";
+alert("Valid");
+}
+
+});
+
+</script>
+
+</body>
+</html>

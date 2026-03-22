@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page 7</title>
+</head>
+<body>
+
+<fieldset style="width:200px;">
+<legend>Profile Picture</legend>
+
+<input type="file" id="photo">
+
+<br><br>
+<div id="photoMsg" style="color:red;"></div>
+
+<input type="button" value="Submit" id="btn">
+
+</fieldset>
+
+<script>
+
+document.getElementById("btn").addEventListener("click", function(){
+
+let photo = document.getElementById("photo").files.length;
+
+if(photo == 0)
+{
+document.getElementById("photoMsg").innerHTML = "Please upload a photo";
+}
+else
+{
+document.getElementById("photoMsg").innerHTML = "";
+alert("Valid");
+}
+
+});
+
+</script>
+
+</body>
+</html>

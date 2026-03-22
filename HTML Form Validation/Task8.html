@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Person Profile</title>
+</head>
+<body>
+
+<table border="1" width="470px" height="600px" align="center" style="border-collapse: collapse;">
+
+<tr height="50">
+<td align="center" colspan="3"><h1>Person Profile</h1></td>
+</tr>
+
+<tr>
+<td width="120px">Name</td>
+<td colspan="2">
+<input type="text" id="name">
+<div id="nameMsg" style="color:darkred;"></div>
+</td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td colspan="2">
+<input type="email" id="email">
+<div id="emailMsg" style="color:darkred;"></div>
+</td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td colspan="2">
+<input type="radio" name="gender" id="male">Male
+<input type="radio" name="gender" id="female">Female
+<input type="radio" name="gender" id="others">Others
+<div id="genderMsg" style="color:darkred;"></div>
+</td>
+</tr>
+
+<tr>
+<td>Date of Birth</td>
+<td colspan="2">
+<input type="text" id="day" size="3">
+<input type="text" id="month" size="3">
+<input type="text" id="year" size="5">
+<div id="dobMsg" style="color:darkred;"></div>
+</td>
+</tr>
+
+<tr>
+<td>Photo</td>
+<td colspan="2">
+<input type="file" id="photo">
+<div id="photoMsg" style="color:darkred;"></div>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" align="right">
+<input type="button" value="Submit" id="submitBtn">
+</td>
+</tr>
+
+</table>
+
+<script>
+
+document.getElementById("submitBtn").addEventListener("click", validateForm);
+
+function validateForm()
+{
+
+let isValid = true;
+
+
+let name = document.getElementById("name").value;
+if(name == "")
+{
+document.getElementById("nameMsg").innerHTML = "Required";
+isValid = false;
+}
+else
+{
+document.getElementById("nameMsg").innerHTML = "";
+}
+
+
+let email = document.getElementById("email").value;
+if(email == "")
+{
+document.getElementById("emailMsg").innerHTML = "Required";
+isValid = false;
+}
+else
+{
+document.getElementById("emailMsg").innerHTML = "";
+}
+
+
+let male = document.getElementById("male");
+let female = document.getElementById("female");
+let others = document.getElementById("others");
+
+if(male.checked==false && female.checked==false && others.checked==false)
+{
+document.getElementById("genderMsg").innerHTML = "Select one";
+isValid = false;
+}
+else
+{
+document.getElementById("genderMsg").innerHTML = "";
+}
+
+
+let day = document.getElementById("day").value;
+let month = document.getElementById("month").value;
+let year = document.getElementById("year").value;
+
+if(day=="" || month=="" || year=="")
+{
+document.getElementById("dobMsg").innerHTML = "All required";
+isValid = false;
+}
+else
+{
+document.getElementById("dobMsg").innerHTML = "";
+}
+
+
+let photo = document.getElementById("photo").files.length;
+
+if(photo == 0)
+{
+document.getElementById("photoMsg").innerHTML = "Upload photo";
+isValid = false;
+}
+else
+{
+document.getElementById("photoMsg").innerHTML = "";
+}
+
+if(isValid == true)
+{
+alert("All Valid");
+}
+
+}
+
+</script>
+
+</body>
+</html>

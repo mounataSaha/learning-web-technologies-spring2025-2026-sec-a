@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Validation</title>
+</head>
+<body>
+
+<fieldset style="width:200px;">
+
+<legend>Gender</legend>
+
+<input type="radio" name="gender" id="male"> Male <br>
+<input type="radio" name="gender" id="female"> Female <br>
+<input type="radio" name="gender" id="others"> Others
+
+</fieldset>
+
+<br>
+
+<span id="error" style="color:brown;"></span>
+
+<br><br>
+
+<input type="button" value="Submit" id="submitBtn">
+
+
+<script>
+
+
+document.getElementById("submitBtn").addEventListener("click", validateGender);
+
+
+function validateGender()
+{
+    
+    var male = document.getElementById("male");
+    var female = document.getElementById("female");
+    var others = document.getElementById("others");
+
+
+    
+    if(male.checked == false && female.checked == false && others.checked == false)
+    {
+        document.getElementById("error").innerHTML =
+        "Please select a gender";
+        return false;
+    }
+
+
+    document.getElementById("error").innerHTML =
+    "Gender selected ✔";
+
+}
+
+</script>
+
+</body>
+</html>

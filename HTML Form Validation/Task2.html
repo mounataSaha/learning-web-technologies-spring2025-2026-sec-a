@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+<body>
+
+<label for="email">Email</label> <br><br>
+
+<input type="email" id="email"> <br><br>
+
+<span id="error" style="color:brown;"></span> <br><br>
+
+<input type="button" value="Submit" id="submitBtn">
+
+
+<script>
+
+
+document.getElementById("submitBtn").addEventListener("click", validateEmail);
+
+
+function validateEmail()
+{
+    var email = document.getElementById("email").value;
+
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if(email == "")
+    {
+        document.getElementById("error").innerHTML = "Email cannot be empty";
+        return false;
+    }
+
+
+    if(!pattern.test(email))
+    {
+        document.getElementById("error").innerHTML = "Enter valid email";
+        return false;
+    }
+
+
+    document.getElementById("error").innerHTML = "Valid Email ✔";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Validation</title>
+</head>
+<body>
+
+<label for="name">Name:</label> <br><br>
+
+<input type="text" id="name"> <br><br>
+
+<span id="error" style="color:brown;"></span> <br><br>
+
+<input type="button" value="Submit" onclick="validateName()">
+
+<script>
+
+function validateName()
+{
+    let name = document.getElementById("name").value;
+
+    if(name == "")
+    {
+        document.getElementById("error").innerHTML = "Field cannot be empty";
+        return false;
+    }
+    else
+    {
+        document.getElementById("error").innerHTML = "Valid input ✔";
+    }
+}
+
+</script>
+
+</body>
+</html>
